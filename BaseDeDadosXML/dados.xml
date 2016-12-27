@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sites>
+<conteudo id="1">
+<titulo>Toca Digital</titulo>
+<url>http://www.tocadigital.com.br</url>
+<descricao>
+<texto1><![CDATA[texto 1. Toca Digital surgiu com a necessidade de oferecer ferramentas estratégicas para ampliar as possibilidades do mundo dos negócios através de frameworks modernos e evolutivos. Utilizando-se da linguagem de lógica de programação avançada, com recursos voltados para o comércio eletrônico e gestão empresarial, assumimos uma postura colaborativa, com foco essencial nas necessidades do cliente, valorizando a relação custo/benefício e tornando a informação cada vez mais acessível.]]></texto1>
+<texto2><![CDATA[texto 2. Este texto tem id 1.]]></texto2>
+</descricao>
+</conteudo>
+<conteudo id="2">
+<titulo>Site Andréa Cisne</titulo>
+<url>http://www.andreacisne.com.br</url>
+<descricao>
+<texto1><![CDATA[texto 1. Essa é uma frase de um amigo que diz tudo!!! Opa… como vc tá? faz tempo hein!!! ó só.. ve só essa frase é pra vc!!! (…) Deus permitiu a existência das quedas d’água para aprendermos quanta força de trabalho e renovação podemos extrair de nossas próprias quedas… tendeu?]]></texto1>
+<texto2><![CDATA[texto 2. Este texto tem id 2.]]></texto2>
+</descricao>
+</conteudo>
+<conteudo id="3">
+<titulo>F1SYS</titulo>
+<url>http://www.f1sys.com.br</url>
+<descricao>
+<texto1><![CDATA[texto 1. Computadores facilitam nossas vidas, mas podem dar uma grande dor de cabeça quando não funcionam direito.<br><br>
+Independente do problema que seu computador possua, nós podemos ajudar. Nossos serviços são executados por uma equipe técnica altamente especializada, para empresas com garantia dos serviços prestados. Nós oferecemos um atendimento compreensivo, amigável e totalmente qualificado para a manutenção de computadores e redes de computadores em geral.
+<br><br>
+Oferecemos o serviços de instalação de computadores e configuração de internet para quem decidiu substituí-lo por um modelo mais recente. Esclarecemos as dúvidas sobre o sistema operacional instalado, configuramos os periféricos e acessórios e orientamos nossos clientes para melhor utilizarem seus computadores.]]></texto1>
+<texto2><![CDATA[texto 2. Este texto tem id 3.]]></texto2>
+</descricao>
+</conteudo>
+</sites>

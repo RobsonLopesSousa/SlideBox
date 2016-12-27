@@ -1,0 +1,64 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<title>Lendo XML com jQuery</title>
+<style type="text/css">
+body{
+font-family: Arial, Helvetica, sans-serif;
+background: #FFF;
+font-size:11px;
+}
+.texto,.texto2{
+font-size:11px;
+line-height:15px;
+color:#666;
+padding:6px;
+
+}
+a{color:#039; text-decoration:none}
+a:hover{ color:#900}
+.link a,.link{font-size:10px; color:#900}
+h1{font-size:14px}
+</style>
+<script>
+$(function(){
+$('.texto').fadeOut("slow");
+$('.texto2').fadeOut("slow");
+});
+$(document).ready(function(){
+
+$.ajax({
+type: "GET",
+url: "../BaseDeDadosXML/dados.xml",
+dataType: "xml",
+success: function(xml) {
+$(xml).find('conteudo').each(function(){
+var id = $(this).attr('id');
+var title = $(this).find('titulo').text();
+var url = $(this).find('url').text();
+    alert(url);
+//$('<div class="items" id="link_'+id+''"></div>').html('<p>Confira o texto original em: <a href="'+url+'">'+title+'</a></p>').appendTo('#dados');
+/*$(this).find('descricao').each(function(){
+var texto1 = $(this).find('texto1').text();
+var texto2 = $(this).find('texto2').text();
+$('<div class="texto" id="texto_'+id+'" style="display:none"></div>').html(texto1).appendTo('#link_'+id);
+$('<div class="texto2" id="texto2_'+id+'" style="display:none"></div>').html(texto2).appendTo('#link_'+id);
+$('<div class="link" id="link_id_'+id+'"></div>').html('<a href="javascript:exibeInfo(\'#texto_'+id+'\')">exibir texto 1</a> | <a href="javascript:exibeInfo(\'#texto2_'+id+'\')">exibir texto 2</a>').appendTo('#link_'+id);
+});*/
+});
+}
+});
+});
+</script>
+
+</head>
+<body>
+<div id="dados">
+<h1>Lendo XML com jQuery</h1>
+<!– aqui entra os dados –>
+</div>
+</body>
+</html>
