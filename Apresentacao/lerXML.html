@@ -1,0 +1,44 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<title>Lendo XML com jQuery</title>
+
+<script>
+$(document).ready(function(){
+
+$.ajax({
+    type: "GET",
+    url: "../BaseDeDadosXML/xmlDeOrganizacaoDeCodigo.xml",
+    dataType: "xml",
+    success: function(xml) {
+        $(xml).find('blocoDeCodigo').each(function(){
+            var valor  = $(this).find('codigo')[0];
+             alert(valor);
+            
+                $(this).find('codigo').each(function(){
+                    
+                    var texto1 = $(this).find('codigoCabeca').text();
+                    var texto2 = $(this).find('codigoCorpo').text();
+                    var texto3 = $(this).find('codigoPe').text();
+                        alert(texto1);
+                        alert(texto2);
+                        alert(texto3);
+
+                });
+
+        });
+    }
+    });
+});
+</script>
+
+</head>
+<body>
+<div id="dados">
+<h1>Lendo XML com jQuery</h1>
+<!– aqui entra os dados –>
+</div>
+</body>
+</html>
