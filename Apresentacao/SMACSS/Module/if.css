@@ -1,0 +1,43 @@
+.if{
+    width: 100%;
+    height: auto;
+    /*background-color: beige;*/
+    color: #666;
+}
+.if__hd{
+    overflow: hidden;
+    
+}
+.if__bd{
+    
+}
+.if__hd__estrutura{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+    
+}
+.if__hd__variavel{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+    color: cadetblue;
+}
+.if__hd__valor{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+    color: coral;
+}
+.if__hd__juncao{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+}
+.if__bd__chave{
+    width: 20px;
+    height: 20px;
+}
+.if__bd__conteudo{
+    padding-left: 40px;
+}

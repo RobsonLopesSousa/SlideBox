@@ -1,0 +1,20 @@
+<codigo>
+   
+    <atributo tipo='string' nome='nome' ><valor> paulo </valor></atributo>
+    <atributo2 tipo='string' nome='nome' ><valor> juao </valor></atributo2>
+    <atributo tipo='numeric' nome='idade' ><valor> 14 </valor></atributo>
+    <atributo3 tipo='string' nome='nome' ><valor> juao </valor></atributo3>
+    
+    <funcao retorno='void' nome='main'  >
+        <funcao__parametros >
+            <valor >procietario</valor>
+            <valor >valor</valor>
+        </funcao__parametros>
+        <funcao_bd>
+            alert("texto qualquer");
+        </funcao_bd>
+    </funcao>
+    
+    <atributo2 tipo='numeric' nome='idade' ><valor> 14 </valor></atributo2>
+    <atributo tipo='numeric' nome='peso' ><valor> 70 </valor></atributo>
+</codigo>

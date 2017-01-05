@@ -1,0 +1,47 @@
+.atributo
+{
+    width: 100%;
+    /*background-color: azure;*/
+    color: #888;
+    overflow: hidden;
+}
+.atributo__var
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+    color: cornflowerblue;
+}
+.atributo__tipo
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: darkorchid;
+    float: left;
+}
+.atributo__nome
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: darkcyan;
+    float: left;
+}
+.atributo__igualdade
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+}
+.atributo__valor
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: coral;
+    float: left;
+}
+.atributo__pontovigula
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+}

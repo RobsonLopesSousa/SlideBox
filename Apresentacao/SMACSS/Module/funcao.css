@@ -1,0 +1,53 @@
+.funcao
+{
+    width: 100%;
+    /*background-color: aquamarine;*/
+    color: #777;
+    margin-top: 20px;
+}
+.funcao__hd{
+    margin-bottom: 1px;
+}
+.funcao__bd{
+    margin-bottom: 1px;
+}
+.funcao__hd__retorno{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+    color: blueviolet;
+}
+.funcao__hd__function{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+}
+.funcao__hd__nome{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+    color: cornflowerblue;
+}
+.funcao__hd__parametros{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+    overflow: hidden;
+}
+.funcao__hd__parametros__parenteses{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+}
+.funcao__hd__parametros__valor{
+    margin-right: 5px;
+    margin-left: 5px;
+    float: left;
+    color: darkcyan;
+}
+.funcao__bd__chave{
+    width: 20px;
+}
+.funcao__bd__conteudo{
+    padding-left: 40px;
+}

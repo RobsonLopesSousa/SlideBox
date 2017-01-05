@@ -1,44 +1,156 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<title>Lendo XML com jQuery</title>
+	<link rel="stylesheet" type="text/css" href="SMACSS/Module/codigo.css">
+	<link rel="stylesheet" type="text/css" href="SMACSS/Module/atributo.css">
+	<link rel="stylesheet" type="text/css" href="SMACSS/Module/funcao.css">
+	<link rel="stylesheet" type="text/css" href="SMACSS/Module/if.css">
+	<link rel="stylesheet" type="text/css" href="SMACSS/Module/tipos.css">
+</head>
 
 <script>
-$(document).ready(function(){
 
-$.ajax({
-    type: "GET",
-    url: "../BaseDeDadosXML/xmlDeOrganizacaoDeCodigo.xml",
-    dataType: "xml",
-    success: function(xml) {
-        $(xml).find('blocoDeCodigo').each(function(){
-            var valor  = $(this).find('codigo')[0];
-             alert(valor);
-            
-                $(this).find('codigo').each(function(){
-                    
-                    var texto1 = $(this).find('codigoCabeca').text();
-                    var texto2 = $(this).find('codigoCorpo').text();
-                    var texto3 = $(this).find('codigoPe').text();
-                        alert(texto1);
-                        alert(texto2);
-                        alert(texto3);
+var html = "";    
 
-                });
-
-        });
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
     }
-    });
-});
+  };
+  xhttp.open("GET", "../BaseDeDadosXML/xmlQueEstruturaTexto.xml", true);
+  xhttp.send();
+}
+function myFunction(xml) 
+{
+  var i;
+  var xmlDoc = xml.responseXML;
+  var x = xmlDoc.getElementsByTagName("blocoDeCodigo");
+    
+  alert(x.length);
+  for (i = 0; i <x.length; i++) { 
+    
+    
+      
+    var y = x[i].getElementsByTagName("codigoCabeca")[0].childNodes[0].nodeValue;
+    alert(y);
+  }
+  document.getElementById("demo").innerHTML = table;
+}
 </script>
-
-</head>
 <body>
-<div id="dados">
-<h1>Lendo XML com jQuery</h1>
-<!– aqui entra os dados –>
+<button type="button" onclick="loadDoc()">Get my CD collection</button>
+
+<div class="codigo">
+    
+   <div class="atributo" > 
+       <div class="atributo__var" > var </div>
+       <div class="atributo__tipo" ></div>
+       <div class="atributo__nome" > marca </div>
+       <div class="atributo__igualdade" > = </div>
+       <div class="atributo__valor" ><div class="String">"ford"</div></div>
+       <div class="atributo__pontovigula" > ; </div>
+   </div>
+   <div class="atributo" > 
+       <div class="atributo__var" > var </div>
+       <div class="atributo__tipo" > String </div>
+       <div class="atributo__nome" > modelo </div>
+       <div class="atributo__igualdade" > = </div>
+       <div class="atributo__valor" ><div class="String">"uno"</div></div>
+       <div class="atributo__pontovigula" > ; </div>
+   </div>
+   <div class="atributo" > 
+       <div class="atributo__var" > var </div>
+       <div class="atributo__tipo" ></div>
+       <div class="atributo__nome" > rodas </div>
+       <div class="atributo__igualdade" > = </div>
+       <div class="atributo__valor" ><div class="numero">4</div></div>
+       <div class="atributo__pontovigula" > ; </div>
+   </div>
+   <div class="atributo" > 
+       <div class="atributo__var" > var </div>
+       <div class="atributo__tipo" > Numero </div>
+       <div class="atributo__nome" > parabrisa </div>
+       <div class="atributo__igualdade" > = </div>
+       <div class="atributo__valor" ><div class="numero">2</div></div>
+       <div class="atributo__pontovigula" > ; </div>
+   </div>
+   
+   
+   <div class="funcao" >
+        <div class="funcao__hd" >
+            <div class="funcao__hd__retorno" >void</div>
+            <div class="funcao__hd__function" ></div>
+            <div class="funcao__hd__nome" >main</div>
+            <div class="funcao__hd__parametros" >
+                <div class="funcao__hd__parametros__parenteses" >(</div>
+                <div class="funcao__hd__parametros__parenteses" >)</div>
+            </div>
+        </div>
+        <div class="funcao__bd" >
+        <div class="funcao__bd__chave" >{</div>
+            <div class="funcao__bd__conteudo" >
+                <div class="atributo" > 
+                   <div class="atributo__var" > var </div>
+                   <div class="atributo__tipo" ></div>
+                   <div class="atributo__nome" > proprietario </div>
+                   <div class="atributo__igualdade" > = </div>
+                    <div class="atributo__valor" ><div class="numero">4</div></div>
+                   <div class="atributo__;" > ; </div>
+                </div>
+                <div class="atributo" > 
+                   <div class="atributo__var" > var </div>
+                   <div class="atributo__tipo" ></div>
+                   <div class="atributo__nome" > lugar </div>
+                   <div class="atributo__igualdade" > = </div>
+                    <div class="atributo__valor" ><div class="numero">4</div></div>
+                   <div class="atributo__;" > ; </div>
+                </div>
+                <div class="funcao" >
+                    <div class="funcao__hd" >
+                        <div class="funcao__hd__retorno" >void</div>
+                        <div class="funcao__hd__function" >function</div>
+                        <div class="funcao__hd__nome" >vagas</div>
+                        <div class="funcao__hd__parametros" >
+                            <div class="funcao__hd__parametros__parenteses" >(</div>
+                            <div class="funcao__hd__parametros__valor" >procietario, </div>
+                            <div class="funcao__hd__parametros__valor" >valor</div>
+                            <div class="funcao__hd__parametros__parenteses" >)</div>
+                        </div>
+                    </div>
+                    <div class="funcao__bd" > 
+                        <div class="funcao__bd__chave" >{</div>
+                           <div class="funcao__bd__conteudo" >
+                            <div class="if" >
+                                <div class="if__hd" >
+                                    <div class="if__hd__estrutura">if(</div>
+                                        <div class="if__hd__variavel" >proprietario</div>
+                                        <div class="if__hd__juncao"> == </div>
+                                        <div class="if__hd__valor" > "robson" </div>
+                                        <div class="if__hd__juncao">||</div>
+                                        <div class="if__hd__variavel" >proprietario</div>
+                                        <div class="if__hd__juncao"> == </div>
+                                        <div class="if__hd__valor" > "robson" </div>
+                                    <div class="if__hd__estrutura">)</div>
+                                </div>
+                                <div class="if__bd" >
+                                   <div clas="if__bd__chave" >{</div>
+                                    <div class="if__bd__conteudo" >
+                                    alert("texto qualquer");
+                                    </div>
+                                    <div clas="if__bd__chave" >}</div>
+                            </div>
+                          </div>
+                           </div>
+                        <div class="funcao__bd__chave" >}</div>
+                </div>
+                </div>
+            </div>
+        <div class="funcao__bd__chave" >}</div>
+        </div>
+    </div>
+    
 </div>
+
 </body>
 </html>

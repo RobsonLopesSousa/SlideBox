@@ -1,0 +1,45 @@
+
+<codigo>  
+    <atributo atributo__var='var' atributo__tipo='' atributo__nome='marca' atributo__igualdade='=' atributo__valor='"ford"' > </atributo>
+    <atributo atributo__var='var' atributo__tipo='String' atributo__nome='modelo' atributo__igualdade='=' atributo__valor='"uno"' > </atributo>
+    <atributo atributo__var='var' atributo__tipo='' atributo__nome='rodas' atributo__igualdade='=' atributo__valor='4' > </atributo>
+    <atributo atributo__var='var' atributo__tipo='Numero' atributo__nome='parabrisa' atributo__igualdade='=' atributo__valor='2' > </atributo>
+   
+   <funcao>
+        <funcao__hd funcao__hd__retorno="void" funcao__hd__function="" funcao__hd__nome="main" >
+            <funcao__hd__parametros ></funcao__hd__parametros>
+        </funcao__hd>
+        <funcao__bd>
+               
+            <atributo atributo__var='var' atributo__tipo='' atributo__nome='proprietario' atributo__igualdade='=' atributo__valor='4' > </atributo>
+            <atributo atributo__var='var' atributo__tipo='' atributo__nome='lugar' atributo__igualdade='=' atributo__valor='4' > </atributo>
+              
+                
+                
+                <funcao>
+                    <funcao__hd funcao__hd__retorno="void" funcao__hd__function="function" funcao__hd__nome="vagas" >
+                        <funcao__hd__parametros >
+                            <variavel >procietario</variavel>
+                            <variavel >valor</variavel>
+                        </funcao__hd__parametros>
+                    </funcao__hd>
+                    <funcao__bd> 
+                            <if>
+                                <if__hd>
+                                        <variavel >proprietario</variavel>
+                                        <estrutura> == </estrutura>
+                                        <string> "robson" </string>
+                                        <estrutura>||</estrutura>
+                                        <variavel>proprietario</variavel>
+                                        <estrutura> == </estrutura>
+                                        <string> "robson" </string>
+                                </if__hd>
+                                <if__bd>
+                                    alert("texto qualquer");
+                               </if__bd>
+                            </if>
+                    </funcao__bd>
+                </funcao>
+        </funcao__bd>
+    </funcao>
+</codigo>
