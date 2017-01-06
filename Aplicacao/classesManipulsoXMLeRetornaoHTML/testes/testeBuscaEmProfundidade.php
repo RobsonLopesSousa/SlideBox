@@ -4,8 +4,8 @@ require_once '../classes/BuscaEmProfundidade.php';
 
 $BEF = new BuscaEmProfundidade();
 
-if (file_exists("xmlParaTeste/carroSimples.xml")) {
-        $xml = simplexml_load_file("xmlParaTeste/carroSimples.xml");
+//if (file_exists("xmlParaTeste/carroSimples.xml")) {
+        $xml = simplexml_load_file("xmlParaTeste/codigo2.xml");
         $xml = json_decode(json_encode($xml), TRUE);
     
         // Teste numero 1: Imprimir a arvore do array;
@@ -21,10 +21,16 @@ if (file_exists("xmlParaTeste/carroSimples.xml")) {
         // Teste numero 5: Fatorial 
         //echo $BEF->fatorial(3);
         // Teste numero 6: lendo xml e retornando a arvore com o html
-        $BEF->buscaRecursivaRetornandoHtml($xml);
-        
-    } else 
-        exit('Falha ao abrir test.xml.');
+        //$xml = simplexml_load_file("xmlParaTeste/codigo2.xml");
+        //$xml = json_decode(json_encode($xml), TRUE);
+        //$BEF->buscaRecursivaRetornandoHtml($xml);
+
+        $xml = simplexml_load_file("xmlParaTeste/codigo1.xml");
+        $xml = json_decode(json_encode($xml), TRUE);
+        $BEF->buscaRecursivaRetornandoHtml2($xml);
+
+   /* } else 
+        exit('Falha ao abrir test.xml.'); */
 
 
 ?>

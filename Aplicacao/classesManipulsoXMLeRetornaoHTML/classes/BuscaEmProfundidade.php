@@ -72,42 +72,16 @@ class BuscaEmProfundidade{
         }
     }
     
-    function buscaRecursivaRetornandoHtml($array)
+    function buscaRecursivaRetornandoHtml2($array)
     {
         foreach($array as $key => $valor)
         {
             if(is_array($valor))
-            {
-                
+            { 
                 if($key == "atributo"){
-                    for($i = 0;$i < count($valor);$i++){
-                        $tipo = $valor[$i]['@attributes']['tipo'];
-                        $nome = $valor[$i]['@attributes']['nome'];
-                        $conteudo = $valor[$i]['valor'];
-                        
-                        echo "<div class='tipo'>".$tipo."</div><div class='nome' >".$nome."</div><div class='valor' >".$conteudo.'</div>';
-                    }
+                    echo $this->converterArrayDo_Atributo_EmHtml($valor);
                 }if($key == "funcao"){
-                    echo "---------------------------------------------";
-                    //print_r($valor);
-                    $retorno = $valor['@attributes']['retorno'];
-                    $nome = $valor['@attributes']['nome'];
-                    $parametro1 = $valor['funcao__parametros']['valor'][0];
-                    $parametro2 = $valor['funcao__parametros']['valor'][1];
-                    $conteudo = $valor['funcao_bd'];
-                    
-                    $html = "<div class='funcao' ><div class='retorno' >".$retorno."</div>";
-                    $html .= "<div class='retorno' >".$nome."</div>";
-                    $html .= "<div class='parenteses' >(</div>";
-                    $html .= "<div class='valor'>".$parametro1."</div>";
-                    $html .= "<div class='valor'>".$parametro2."</div>";
-                    $html .= "<div class='parenteses' >)</div>";
-                    $html .= "<div class='estrutura' >{</div>";
-                    $html .= "<div class='conteudo' >".$conteudo."</div>";
-                    $html .= "<div class='estrutura' >}</div>";
-                    
-                    echo $html;
-                    //$this->buscaRecursivaRetornandoHtml($conteudo);
+                    $this->converterArrayDa_Funcao_EmHtml($valor);
                 }
             }
             else
@@ -115,6 +89,94 @@ class BuscaEmProfundidade{
                 return $conteudo;
             }   
         }
+    }
+    
+    private function converterArrayDo_Atributo_EmHtml($arrayDoAtributo)
+    {
+        if(array_key_exists(0,$arrayDoAtributo))
+        {
+            echo $this->converteMaisDeUmAtributo($arrayDoAtributo);
+        }
+        else
+        {
+            echo $this->converteUmAtributo($arrayDoAtributo);
+        }
+    }
+    
+    private function converterArrayDa_Funcao_EmHtml($arrayDaFucao)
+    {    
+        if(array_key_exists(0,$arrayDaFucao))
+        {
+            echo $this->converteMaisDeUmaFucao($arrayDaFucao);
+        }
+        else
+        {
+            echo $this->converteUmaFuncao($arrayDaFucao);
+        }
+    }
+    
+    private function converteMaisDeUmAtributo($arrayDoAtributo)
+    {
+        $html = '';
+        
+        for($i = 0;$i < count($arrayDoAtributo);$i++)
+        {
+            $tipo = $arrayDoAtributo[$i]['@attributes']['tipo'];
+            $nome = $arrayDoAtributo[$i]['@attributes']['nome'];
+            $conteudo = $arrayDoAtributo[$i]['valor'];
+
+            $html .= " Varios atributo: ".$tipo." - ".$nome." - ".$conteudo;
+        }
+        
+        return $html;
+    }
+    private function converteUmAtributo($arrayDoAtributo)
+    {
+        $tipo = $arrayDoAtributo['@attributes']['tipo'];
+        $nome = $arrayDoAtributo['@attributes']['nome'];
+        $conteudo = $arrayDoAtributo['valor'];
+
+        return " So um atributo: ".$tipo." - ".$nome." - ".$conteudo; 
+    }
+    
+    private function converteMaisDeUmaFucao($arrayDaFucao)
+    {
+        $html = '';
+        
+        for($i = 0;$i < count($arrayDaFucao);$i++)
+        {
+            $retorno = $arrayDaFucao[$i]['@attributes']['retorno'];
+            $nome = $arrayDaFucao[$i]['@attributes']['nome'];
+            $parametro1 = $arrayDaFucao[$i]['funcao__parametros']['valor'][0];
+            $parametro2 = $arrayDaFucao[$i]['funcao__parametros']['valor'][1];
+            $conteudo = $arrayDaFucao[$i]['funcao_bd'];
+                    
+            $html = "-------------------------------------<br/>";
+            $html .= $retorno." --- ";
+            $html .= $nome." --- ";
+            $html .= $parametro1." --- ";
+            $html .= $parametro2." --- ";
+            $html .= $conteudo." --- ";
+        }
+        
+        return $html;
+    }
+    
+    private function converteUmaFuncao($arrayDaFucao)
+    {
+        $retorno = $arrayDaFucao['@attributes']['retorno'];
+        $nome = $arrayDaFucao['@attributes']['nome'];
+        $parametro1 = $arrayDaFucao['funcao__parametros']['valor'][0];
+        $parametro2 = $arrayDaFucao['funcao__parametros']['valor'][1];
+        $conteudo = $arrayDaFucao['funcao_bd'];
+                    
+        $html = $retorno." --- ";
+        $html .= $nome." --- ";
+        $html .= $parametro1." --- ";
+        $html .= $parametro2." --- ";
+        $html .= $conteudo." --- ";
+                    
+        return $html;
     }
 } 
 ?> 
