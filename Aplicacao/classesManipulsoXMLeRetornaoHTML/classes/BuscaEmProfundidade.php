@@ -74,95 +74,73 @@ class BuscaEmProfundidade{
     
     function buscaRecursivaRetornandoHtml2($array)
     {
+        //echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+        //echo key($array);
+        //print_r($array);
+        
+        $html = '';
+        
         foreach($array as $key => $valor)
         {
             if(is_array($valor))
             { 
-                if($key == "atributo"){
-                    echo $this->converterArrayDo_Atributo_EmHtml($valor);
-                }if($key == "funcao"){
-                    $this->converterArrayDa_Funcao_EmHtml($valor);
-                }
+                $html .= $this->converterArrayDaCategoriaCorrespondenteEmHtml($key,$valor);
             }
             else
             {
-                return $conteudo;
+                $html .= $valor;
             }   
         }
+        
+        return $html;
+    }
+    
+    private function converterArrayDaCategoriaCorrespondenteEmHtml($chave,$arrayDaCategoria)
+    {
+        if($chave == "atributo")
+            return $this->converterArrayDo_Atributo_EmHtml($arrayDaCategoria);
+        if($chave == "funcao")
+            return $this->converterArrayDa_Funcao_EmHtml($arrayDaCategoria);
     }
     
     private function converterArrayDo_Atributo_EmHtml($arrayDoAtributo)
     {
+        $html = '';
+        
         if(array_key_exists(0,$arrayDoAtributo))
-        {
-            echo $this->converteMaisDeUmAtributo($arrayDoAtributo);
-        }
+            for($i = 0;$i < count($arrayDoAtributo);$i++)
+                $html .= $this->converteArrayNoHtmlDoAtributo($arrayDoAtributo[$i]);
         else
-        {
-            echo $this->converteUmAtributo($arrayDoAtributo);
-        }
+            $html .= $this->converteArrayNoHtmlDoAtributo($arrayDoAtributo);
+        
+        return $html;
     }
     
     private function converterArrayDa_Funcao_EmHtml($arrayDaFucao)
     {    
-        if(array_key_exists(0,$arrayDaFucao))
-        {
-            echo $this->converteMaisDeUmaFucao($arrayDaFucao);
-        }
-        else
-        {
-            echo $this->converteUmaFuncao($arrayDaFucao);
-        }
-    }
-    
-    private function converteMaisDeUmAtributo($arrayDoAtributo)
-    {
         $html = '';
         
-        for($i = 0;$i < count($arrayDoAtributo);$i++)
-        {
-            $tipo = $arrayDoAtributo[$i]['@attributes']['tipo'];
-            $nome = $arrayDoAtributo[$i]['@attributes']['nome'];
-            $conteudo = $arrayDoAtributo[$i]['valor'];
-
-            $html .= " Varios atributo: ".$tipo." - ".$nome." - ".$conteudo;
-        }
+        if(array_key_exists(0,$arrayDaFucao))
+            for($i = 0;$i < count($arrayDaFucao);$i++)
+                $html .= $this->converteArrayNoHtmlDaFuncao($arrayDaFucao[$i]);
+        else
+            $html .= $this->converteArrayNoHtmlDaFuncao($arrayDaFucao);
         
         return $html;
     }
-    private function converteUmAtributo($arrayDoAtributo)
+    
+    private function converteArrayNoHtmlDoAtributo($arrayDoAtributo)
     {
         $tipo = $arrayDoAtributo['@attributes']['tipo'];
         $nome = $arrayDoAtributo['@attributes']['nome'];
         $conteudo = $arrayDoAtributo['valor'];
-
-        return " So um atributo: ".$tipo." - ".$nome." - ".$conteudo; 
-    }
-    
-    private function converteMaisDeUmaFucao($arrayDaFucao)
-    {
-        $html = '';
-        
-        for($i = 0;$i < count($arrayDaFucao);$i++)
-        {
-            $retorno = $arrayDaFucao[$i]['@attributes']['retorno'];
-            $nome = $arrayDaFucao[$i]['@attributes']['nome'];
-            $parametro1 = $arrayDaFucao[$i]['funcao__parametros']['valor'][0];
-            $parametro2 = $arrayDaFucao[$i]['funcao__parametros']['valor'][1];
-            $conteudo = $arrayDaFucao[$i]['funcao_bd'];
-                    
-            $html = "-------------------------------------<br/>";
-            $html .= $retorno." --- ";
-            $html .= $nome." --- ";
-            $html .= $parametro1." --- ";
-            $html .= $parametro2." --- ";
-            $html .= $conteudo." --- ";
-        }
-        
+            
+        $html = "<br/>";
+        $html .= " Varios atributo: ".$tipo." - ".$nome." - ".$conteudo;
         return $html;
     }
     
-    private function converteUmaFuncao($arrayDaFucao)
+    private function converteArrayNoHtmlDaFuncao($arrayDaFucao)
     {
         $retorno = $arrayDaFucao['@attributes']['retorno'];
         $nome = $arrayDaFucao['@attributes']['nome'];
@@ -170,11 +148,17 @@ class BuscaEmProfundidade{
         $parametro2 = $arrayDaFucao['funcao__parametros']['valor'][1];
         $conteudo = $arrayDaFucao['funcao_bd'];
                     
-        $html = $retorno." --- ";
+        $html = "-------------------------------------<br/>";
+        $html .= $retorno." --- ";
         $html .= $nome." --- ";
         $html .= $parametro1." --- ";
         $html .= $parametro2." --- ";
-        $html .= $conteudo." --- ";
+        if(is_array($conteudo))
+            $html .= $this->buscaRecursivaRetornandoHtml2($conteudo);
+        else
+            $html .= $conteudo;
+        $html .= "-------------------------------------<br/>";
+        //print_r($conteudo);
                     
         return $html;
     }

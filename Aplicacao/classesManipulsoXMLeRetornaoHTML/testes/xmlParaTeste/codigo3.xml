@@ -1,0 +1,30 @@
+
+  <codigo>
+   
+    <atributo tipo='string' nome='nome' ><valor> paulo </valor></atributo>
+    <atributo tipo='string' nome='nome' ><valor> lucas </valor></atributo>
+    
+    <funcao retorno='void' nome='main'  >
+        <funcao__parametros >
+            <valor >procietario</valor>
+            <valor >valor</valor>
+        </funcao__parametros>
+        <funcao_bd>
+            <atributo tipo='string' nome='nome' ><valor> Robson </valor></atributo>
+            <atributo tipo='string' nome='nome' ><valor> Sousa </valor></atributo>
+        </funcao_bd>
+    </funcao>
+    
+    <funcao retorno='void' nome='main'  >
+        <funcao__parametros >
+            <valor >procietario</valor>
+            <valor >valor</valor>
+        </funcao__parametros>
+        <funcao_bd>
+            <atributo tipo='string' nome='nome' ><valor> Robson </valor></atributo>
+            <atributo tipo='string' nome='nome' ><valor> Sousa </valor></atributo>
+        </funcao_bd>
+    </funcao>
+    
+    
+    </codigo>

@@ -25,9 +25,13 @@ $BEF = new BuscaEmProfundidade();
         //$xml = json_decode(json_encode($xml), TRUE);
         //$BEF->buscaRecursivaRetornandoHtml($xml);
 
-        $xml = simplexml_load_file("xmlParaTeste/codigo1.xml");
+        //$xml = simplexml_load_file("xmlParaTeste/codigo1.xml");
+        //$xml = json_decode(json_encode($xml), TRUE);
+        //$BEF->buscaRecursivaRetornandoHtml2($xml);
+
+        $xml = simplexml_load_file("xmlParaTeste/codigo3.xml");
         $xml = json_decode(json_encode($xml), TRUE);
-        $BEF->buscaRecursivaRetornandoHtml2($xml);
+        echo $BEF->buscaRecursivaRetornandoHtml2($xml);
 
    /* } else 
         exit('Falha ao abrir test.xml.'); */
